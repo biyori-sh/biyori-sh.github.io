@@ -10,7 +10,7 @@ pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-paginate = 3 # articles per page
+paginate = 10 # articles per page
 
 [params]
 	mode = "auto" # color-mode → light,dark or auto
@@ -47,7 +47,7 @@ weight = 5
 [[params.social]]
 name = "GitHub"
 icon = "github"
-url = "https://github.com/biyori-sh"
+url = "https://github.com/biyori-sh/"
 
 [[params.social]]
 name = "Twitter"
