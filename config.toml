@@ -3,7 +3,7 @@ languageCode = "utf-8"
 title = "biyori-sh's page"
 theme = "archie"
 publishDir = "docs" # Directory where htmls are gerenated
-# canonifyurls = true # Baseurl(root)
+canonifyurls = true # Baseurl(root)
 
 ##### Code Highlight #####
 pygmentsstyle = "monokai"
