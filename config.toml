@@ -2,6 +2,7 @@ baseURL = "https://biyori-sh.github.io/"
 languageCode = "utf-8"
 title = "biyori-sh's page"
 theme = "archie"
+disableKinds = ["RSS", "sitemap"]
 publishDir = "docs" # Directory where htmls are gerenated
 canonifyurls = true # Baseurl(root)
 
@@ -10,7 +11,7 @@ pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-paginate = 10 # articles per page
+paginate = 4 # articles per page
 
 [params]
 	mode = "auto" # color-mode → light,dark or auto
@@ -25,17 +26,17 @@ weight = 1
 
 [[menu.main]]
 name = "All posts"
-url = "/post"
+url = "/posts"
 weight = 2
 
 [[menu.main]]
 name = "Notes"
-url = "/note/note/"
+url = "/notes/note"
 weight = 3
 
 [[menu.main]]
 name = "About"
-url = "/about/about/"
+url = "/about/about"
 weight = 4
 
 [[menu.main]]

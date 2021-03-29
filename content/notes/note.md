@@ -1,7 +1,7 @@
 ---
 title: "Notes"
-description:
-date: 2021-03-29T13:26:46+09:00
+date: 2021-03-29T16:26:46+09:00
+description: "PDF置き場"
 tags: [physics, mathematics, programming]
 ---
 
