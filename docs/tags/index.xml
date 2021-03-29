@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on biyori-sh&#39;s page</title>
+    <link>https://biyori-sh.github.io/tags/</link>
+    <description>Recent content in Tags on biyori-sh&#39;s page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>utf-8</language>
+    <lastBuildDate>Mon, 29 Mar 2021 13:26:46 +0900</lastBuildDate>
+    
+	<atom:link href="https://biyori-sh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mathematics</title>
+      <link>https://biyori-sh.github.io/tags/mathematics/</link>
+      <pubDate>Mon, 29 Mar 2021 13:26:46 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/tags/mathematics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>physics</title>
+      <link>https://biyori-sh.github.io/tags/physics/</link>
+      <pubDate>Mon, 29 Mar 2021 13:26:46 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/tags/physics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://biyori-sh.github.io/tags/programming/</link>
+      <pubDate>Mon, 29 Mar 2021 13:26:46 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>about me</title>
+      <link>https://biyori-sh.github.io/tags/about-me/</link>
+      <pubDate>Mon, 29 Mar 2021 12:52:19 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/tags/about-me/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>etc</title>
+      <link>https://biyori-sh.github.io/tags/etc/</link>
+      <pubDate>Mon, 29 Mar 2021 01:45:52 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/tags/etc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
