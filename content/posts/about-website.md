@@ -1,5 +1,6 @@
 ---
 title: "このWebサイトについて"
+description: "はじめまして"
 date: 2021-03-29T15:45:52+09:00
 tags: [etc]
 ---

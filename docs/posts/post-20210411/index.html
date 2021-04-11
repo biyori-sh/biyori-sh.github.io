@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>メモ: HugoでGithub Pages - biyori-sh&#39;s page</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="メモ: HugoでGithub Pages" />
+<meta property="og:description" content="HugoでこのWebページを作ったメモ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biyori-sh.github.io/posts/post-20210411/" />
+<meta property="article:published_time" content="2021-04-11T17:12:39+09:00" />
+<meta property="article:modified_time" content="2021-04-11T17:12:39+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="メモ: HugoでGithub Pages"/>
+<meta name="twitter:description" content="HugoでこのWebページを作ったメモ"/>
+<script src="https://biyori-sh.github.io/js/feather.min.js"></script>
+	
+	<link href="https://biyori-sh.github.io/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://biyori-sh.github.io/css/main.css" /><link rel="stylesheet" type="text/css" href="https://biyori-sh.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://biyori-sh.github.io/">biyori-sh&#39;s page</a>
+	</div>
+	<nav>
+		
+		<a href="https://biyori-sh.github.io/">Home</a>
+		
+		<a href="https://biyori-sh.github.io/posts">All posts</a>
+		
+		<a href="https://biyori-sh.github.io/notes/notes">Notes</a>
+		
+		<a href="https://biyori-sh.github.io/about/about">About</a>
+		
+		<a href="https://biyori-sh.github.io/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">メモ: HugoでGithub Pages</h1>
+			<div class="meta">Posted on Apr 11, 2021</div>
+		</div>
+		
+
+		<section class="body">
+			<h1 id="github-pages">Github Pages</h1>
+<p>Githubでは<code>&lt;username&gt;.github.io</code>で個人ブログを持つことが出来る。
+静的なものしか出来ないが、別途サーバーを用意する必要がない。</p>
+<p><code>&lt;username&gt;.github.io</code>という名称のリポジトリをつくり、htmlを並べればWebサイトになる。
+あるいは静的サイトジェネレータとしてJekyllがサポートされているので、これを用いたWebサイト作りも出来る。</p>
+<p>これはHugoを用いてWeb サイトを作ったメモである。
+参考として<a href="https://gohugo.io/documentation/">Hugo Documentation</a>と<a href="https://maku77.github.io/hugo/basic/create-site.html">Hugoで新規のWebサイトを作成する</a>、<a href="https://www.membersedge.co.jp/blog/create-hugo-theme-and-deploy-to-github-pages/">Hugoで1からテーマを作ってGitHub Pagesにデプロイする</a>などを見た。</p>
+<h2 id="hugoのインストール">Hugoのインストール</h2>
+<p>Ubuntu20.04では<code>apt</code>で導入が可能になっている。
+公式では<code>wget</code>による導入が記載されていたが、簡単に<code>apt</code>で導入した。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install hugo
+</code></pre></div><h2 id="リポジトリ作成ローカル">リポジトリ作成（ローカル）</h2>
+<p>まずはローカルな環境で<code>&lt;username&gt;.github.io</code>の名前でディレクトリを作ることになるが、<code>mkdir</code>をする必要はなく</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site &lt;username&gt;.github.io
+</code></pre></div><p>を実行することでディレクトリと基本的なツリー構造</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;username&gt;.github.io/
+├─ archetypes
+├─ content
+├─ data
+├─ layouts
+├─ resources
+├─ static
+├─ themes
+└─ config.toml
+</code></pre></div><p>が出来上がる。
+<code>config.toml</code>が基本となる設定ファイルである。
+<code>archetypes/</code>に記事を作る際のテンプレート用ファイルがあり、記事は<code>content/</code>に保存していく。
+記事は基本的にマークダウンファイル<code>.md</code>として作る。</p>
+<h3 id="theme">Theme</h3>
+<p><code>themes/</code>にWebサイトの基本となるテーマをインストールする。
+これは<a href="https://themes.gohugo.io/">Hugo Themes</a>から選べる。
+ここでは<a href="https://themes.gohugo.io/archie/">Archie</a> を選んだ(<a href="https://github.com/athul/archie">athul/archie Github</a>, <a href="https://athul.github.io/archie/">Archie Sample</a>)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd themes
+$ git clone https://github.com/athul/archie.git
+</code></pre></div><p>でテーマのインストールは完了となる。
+ここに<code>archetypes/</code>と<code>config.toml</code>の参考に出来る例があるので適宜コピペする（実際の設定は<a href="https://github.com/biyori-sh/biyori-sh.github.io/blob/main/config.toml">こちら</a>）。
+また後のために<code>.git/</code>などのGitまわりのディレクトリは削除しておく。</p>
+<h3 id="content">Content</h3>
+<p><code>content/</code>内での構造は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">content/
+├── about
+├── notes
+└── posts
+</code></pre></div><p>とした。
+各々好きなディレクトリ名、構造にすることが出来る。
+それぞれに適宜<code>.md</code>ファイルの記事を置いていく。
+先述の参考にした<code>config.toml</code>の内容を見て、上記の構造と合っているかどうか確認する。
+ここでの確認においては<code>content/</code>がルートディレクトリになっており、それ以下の構造を考える。</p>
+<h3 id="webページの確認">Webページの確認</h3>
+<p>途中でサイト作成がうまく行っているかのローカル環境での確認は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo server
+</code></pre></div><p>で行える。
+ブラウザで<code>http://localhost:1313/</code>を打ち込めばアクセスできる。
+正しい構造になっていれば<code>content/</code>以下に作成した<code>.md</code>ファイルがWebページとして表示される。</p>
+<h3 id="別途hugoで必要な設定">別途Hugoで必要な設定</h3>
+<p>Githubが対応している静的サイトジェネレータはJekyllなので、Hugoを使う際は別途設定をしなければならない。</p>
+<p>まずは<code>&lt;username.github.io</code>に空ファイルで<code>.nojekyll</code>を作る（無い場合を確認していない。公式にはこう書いてある。）。</p>
+<p>次に<code>config.toml</code>に</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ publishDir = &#34;docs&#34;
+</code></pre></div><p>を追加する。
+HugoはGithubの対応が無いため、ローカル環境で</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo
+</code></pre></div><p>を実行することでhtmlファイルなど一通りのファイルをローカルでビルドする必要がある。
+この際、デフォルトでは作成されたファイルは<code>public/</code>に保存される。
+このディレクトリはGithubで対応されていないため、対応されている<code>docs/</code>に変更することで読み込まれる。
+上述の設定ファイルへの記述はこの対応のためである。</p>
+<p>またこのままではHomepageが機能せず、PDFなどのリンクを貼っても機能しない。
+これは<code>docs/</code>以下のファイルを読み込むようにはなっているが、ルートの指定が正しくされていないため、リンクが機能していないためだ。
+これを修正するために</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">canonifyurls = true
+</code></pre></div><p>を<code>config.toml</code>に追記する。</p>
+<p>一通り公開する記事の準備が出来たら<code>hugo</code>でビルドして<code>docs/</code>以下にhtmlファイルなどを生成しておく。
+PDFファイルなどへのリンクを貼るときは<code>docs/pdf/</code>のようにディレクトリをつくり、そこにPDF を保存しておく。
+リンクは<code>[テキスト](https://&lt;username&gt;.github.io/pdf/ファイル名.pdf)</code>と書いておけばつながる。</p>
+<h3 id="githubリモートまわりの設定">Github（リモート）まわりの設定</h3>
+<p>ローカルでしか設定を行なっていないので、リモートのGithubでの設定を行なう。</p>
+<p>Githubで通常どおりリモートリポジトリを作る。
+ただしリポジトリ名は<code>&lt;username&gt;.github.io</code>という名称で作る。
+またREADMEやLICENSEなどの設定の選択肢があるが、これらは全て作らないようにしておく。
+このとき、デフォルトのブランチ名は<code>main</code>である。</p>
+<p>一方でローカルの<code>&lt;username&gt;.github.io</code>にて</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git init
+</code></pre></div><p>を行なう。
+以下通常通り<code>git add .</code>と<code>git commit -m &quot;initial commit&quot;</code>を行なう（コミットのメッセージの文言は各々自由）。
+次に</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git remote add origin git@github.com:&lt;username&gt;/&lt;username&gt;.github.io
+</code></pre></div><p>を行ない、</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push -u origin main
+</code></pre></div><p>することでローカルで行なった設定がGithubに反映される。</p>
+<p>リモートリポジトリを作る時にREADMEなどを作ってしまう、あるいは<code>git</code>実行時に<code>main</code>とせず<code>master</code>としてしまうとプッシュ（あるいはマージ）が失敗してしまう。
+これはヒストリーを共有しない2つの独立なブランチを作ったことによる失敗であり、前者は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push -f origin main
+</code></pre></div><p>で、後者は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git merge --allow-unrelated-histories main master
+</code></pre></div><p>（<a href="https://qiita.com/mei28/items/85bc881ac1f26332ac15">Git fatal: refusing to merge unrelated historiesを解決する話</a>）で解決される。
+余分な<code>master</code>は<code>git branch -d master</code>なり<code>git push --delete origin master</code>なりで削除。</p>
+<p>既にローカルで編集してビルドまで済ませたディレクトリとファイルとがGithubにプッシュされているが、このままではまだ<code>https://&lt;username&gt;.github.io</code>につながらない。</p>
+<p>リポジトリ<code>&lt;username&gt;.github.io</code>のSettingsからGithub Pagesの項目のところへ行き、Sourceの欄で<code>/(root)</code>から<code>/docs</code>へ変更してSaveしておく。
+これで自分のサイトへつながるようになっている。</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="https://biyori-sh.github.io/tags/git">git</a></li>
+					
+					<li><a href="https://biyori-sh.github.io/tags/github">github</a></li>
+					
+					<li><a href="https://biyori-sh.github.io/tags/hugo">hugo</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/biyori-sh/" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/biyori_sh/" title="Twitter"><i data-feather="twitter"></i></a>|⚡️
+	2021  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
