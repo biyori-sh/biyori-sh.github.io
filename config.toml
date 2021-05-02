@@ -31,12 +31,12 @@ weight = 2
 
 [[menu.main]]
 name = "Notes"
-url = "/notes/notes"
+url = "/notes"
 weight = 3
 
 [[menu.main]]
 name = "About"
-url = "/about/about"
+url = "/about"
 weight = 4
 
 [[menu.main]]
