@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>biyori-sh&#39;s page</title>
+    <link>https://biyori-sh.github.io/</link>
+    <description>Recent content on biyori-sh&#39;s page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>utf-8</language>
+    <lastBuildDate>Sun, 04 Apr 2021 01:32:04 +0900</lastBuildDate>
+    
+	<atom:link href="https://biyori-sh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>メモ: Common LispのHyperspecをewwで見る（の微修正）</title>
+      <link>https://biyori-sh.github.io/posts/post-20210502/</link>
+      <pubDate>Sun, 02 May 2021 14:30:09 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210502/</guid>
+      <description>いままで調べるときはWebブラウザに移動して検索していたが、ふと気になったのでEmacsのewwでCommonLispのHyperSpecをHack!（2015年）を参考に設定を変更したときのメモ。
+ちょっと検索してみるとどうやらこのページの記述は若干古いらしく、新しい方の書き方と思われるコードに変更（古いだけで問題なく動きはする。）。 基本的には上記のページの内容に沿っているので違うところのみを以下メモ。 また、ここのコードは動きはしますが実際のところ正しいのかはよくわかっておりません。
+修正する設置ファイルの位置 使っているslimeのHyperspecに関わる設定ファイルhyperspec.elを編集する。 roswellを使っているときは~/.roswell/lisp/slime/2020.07.15/lib/にあるhyperspec.elが読み込まれる（バージョンによってはslime直下のディレクトリ名は違うと思われる。）。 roswellを使っていないときは~/.emacs.d/elpa/以下に同じようなディレクトリがあるはずなので、そこを修正すれば反映されると思われる。
+ここではその設定ファイルを直接編集するので、念の為ファイル内で既存のコードはコメントアウトして編集するか、別途バックアップファイルを作っておくかしておく。
+defadviceからdefun+advice-addへ どうやら参考にしたページにあるdefadviceを使うコードは古いらしく、以下のようにdefunとadvice-addとのコードに変更した。
+(defun common-lisp-hyperspec-around (orig-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply orig-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec :around &amp;#39;common-lisp-hyperspec-around) (defun common-lisp-hyperspec-lookup-reader-macro-around (oring-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply oring-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec-lookup-reader-macro :around &amp;#39;common-lisp-hyperspec-lookup-reader-macro-around) (defun common-lisp-hyperspec-format-around (orig-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply orig-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec-format :around &amp;#39;common-lisp-hyperspec-format-around) :aroundの場合だけなので、defadviceを元の函数とその引数とを引数に持つdefunに書き換え、ad-do-itの部分を(apply orig-func args)に書き換えた。</description>
+    </item>
+    
+    <item>
+      <title>メモ: HugoでGithub Pages</title>
+      <link>https://biyori-sh.github.io/posts/post-20210411/</link>
+      <pubDate>Sun, 11 Apr 2021 17:12:39 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210411/</guid>
+      <description>Github Pages Githubでは&amp;lt;username&amp;gt;.github.ioで個人ブログを持つことが出来る。 静的なものしか出来ないが、別途サーバーを用意する必要がない。
+&amp;lt;username&amp;gt;.github.ioという名称のリポジトリをつくり、htmlを並べればWebサイトになる。 あるいは静的サイトジェネレータとしてJekyllがサポートされているので、これを用いたWebサイト作りも出来る。
+これはHugoを用いてWeb サイトを作ったメモである。 参考としてHugo DocumentationとHugoで新規のWebサイトを作成する、Hugoで1からテーマを作ってGitHub Pagesにデプロイするなどを見た。
+Hugoのインストール Ubuntu20.04ではaptで導入が可能になっている。 公式ではwgetによる導入が記載されていたが、簡単にaptで導入した。
+$ sudo apt install hugo リポジトリ作成（ローカル） まずはローカルな環境で&amp;lt;username&amp;gt;.github.ioの名前でディレクトリを作ることになるが、mkdirをする必要はなく
+$ hugo new site &amp;lt;username&amp;gt;.github.io を実行することでディレクトリと基本的なツリー構造
+&amp;lt;username&amp;gt;.github.io/ ├─ archetypes ├─ content ├─ data ├─ layouts ├─ resources ├─ static ├─ themes └─ config.toml が出来上がる。 config.tomlが基本となる設定ファイルである。 archetypes/に記事を作る際のテンプレート用ファイルがあり、記事はcontent/に保存していく。 記事は基本的にマークダウンファイル.mdとして作る。
+Theme themes/にWebサイトの基本となるテーマをインストールする。 これはHugo Themesから選べる。 ここではArchie を選んだ(athul/archie Github, Archie Sample)。
+$ cd themes $ git clone https://github.com/athul/archie.git でテーマのインストールは完了となる。 ここにarchetypes/とconfig.tomlの参考に出来る例があるので適宜コピペする（実際の設定はこちら）。 また後のために.git/などのGitまわりのディレクトリは削除しておく。
+Content content/内での構造は
+content/ ├── about ├── notes └── posts とした。 各々好きなディレクトリ名、構造にすることが出来る。 それぞれに適宜.</description>
+    </item>
+    
+    <item>
+      <title>Notes</title>
+      <link>https://biyori-sh.github.io/notes/</link>
+      <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/notes/</guid>
+      <description>PDF置き場。 問題があれば報告していただけるとありがたいです。
+ 数学・物理系  SPINOR（暫定） : 座標のLotentz 変換に始まりスピノル場の変換までのまとめ（の予定）（未完）。 微分演算子 : 並進演算子、スケール演算子など。  技術系  Common Lispの紹介 : Common Lispのちょっとした紹介のスライド。  </description>
+    </item>
+    
+    <item>
+      <title>ノートの追加: 微分演算子</title>
+      <link>https://biyori-sh.github.io/posts/post-20210404/</link>
+      <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210404/</guid>
+      <description>NotesにてPDFノート「微分演算子」の追加。
+よく知られている並進演算子、スケール演算子などのちょっとした確認計算を、わりと前にPDFにまとめたものです。</description>
+    </item>
+    
+    <item>
+      <title>スライドの追加: Common Lispの紹介</title>
+      <link>https://biyori-sh.github.io/posts/post-20210401/</link>
+      <pubDate>Thu, 01 Apr 2021 01:09:59 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210401/</guid>
+      <description>NotesにてPDFスライド「Common Lispの紹介」の追加。
+内輪でとはいえ、日の目を見る機会が無くなったスライドの供養を兼ねて置いておきます。</description>
+    </item>
+    
+    <item>
+      <title>このWebサイトについて</title>
+      <link>https://biyori-sh.github.io/posts/about-website/</link>
+      <pubDate>Mon, 29 Mar 2021 15:45:52 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/about-website/</guid>
+      <description>はじめまして。 ここでは物理や数学、プログラミングなどについてのノートや記事を置いていく予定です。
+テストとして、まだ途中のLorentz変換についてのノートを公開します。</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://biyori-sh.github.io/about/</link>
+      <pubDate>Mon, 29 Mar 2021 12:52:19 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/about/</guid>
+      <description>広島でそりうしっぽなにかをしている学生です。
+Nambu&amp;ndash;Jona Lasinio (NJL) 模型やGross&amp;ndash;Neveu (GN) 模型などをいじってます。
+Common Lisp にも興味があります。</description>
+    </item>
+    
+  </channel>
+</rss>

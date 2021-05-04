@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>physics on biyori-sh&#39;s page</title>
+    <link>https://biyori-sh.github.io/tags/physics/</link>
+    <description>Recent content in physics on biyori-sh&#39;s page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>utf-8</language>
+    <lastBuildDate>Sun, 04 Apr 2021 01:32:04 +0900</lastBuildDate>
+    
+	<atom:link href="https://biyori-sh.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes</title>
+      <link>https://biyori-sh.github.io/notes/</link>
+      <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/notes/</guid>
+      <description>PDF置き場。 問題があれば報告していただけるとありがたいです。
+ 数学・物理系  SPINOR（暫定） : 座標のLotentz 変換に始まりスピノル場の変換までのまとめ（の予定）（未完）。 微分演算子 : 並進演算子、スケール演算子など。  技術系  Common Lispの紹介 : Common Lispのちょっとした紹介のスライド。  </description>
+    </item>
+    
+  </channel>
+</rss>
