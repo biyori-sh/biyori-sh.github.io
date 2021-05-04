@@ -4,7 +4,7 @@ title = "biyori-sh's page"
 theme = "archie"
 publishDir = "docs" # Directory where htmls are gerenated
 canonifyurls = true # Baseurl(root)
-googleAnalytics = "UA-196187145-1"
+googleAnalytics = ""
 
 ##### Code Highlight #####
 pygmentsstyle = "monokai"
