@@ -5,7 +5,7 @@
     <link>https://biyori-sh.github.io/tags/mathematics/</link>
     <description>Recent content in mathematics on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>utf-8</language>
+    <language>ja-jp</language>
     <lastBuildDate>Sun, 04 Apr 2021 01:32:04 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/tags/mathematics/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
       <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/notes/</guid>
-      <description>PDF置き場。 問題があれば報告していただけるとありがたいです。
- 数学・物理系  SPINOR（暫定） : 座標のLotentz 変換に始まりスピノル場の変換までのまとめ（の予定）（未完）。 微分演算子 : 並進演算子、スケール演算子など。  技術系  Common Lispの紹介 : Common Lispのちょっとした紹介のスライド。  </description>
+      <description>PDF置き場。 問題があれば報告していただけるとありがたいです。 数学・物理系 SPINOR（暫定） : 座標のLotentz 変換に始まりスピノル場の</description>
     </item>
     
     <item>
@@ -27,8 +26,7 @@
       <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210404/</guid>
-      <description>NotesにてPDFノート「微分演算子」の追加。
-よく知られている並進演算子、スケール演算子などのちょっとした確認計算を、わりと前にPDFにまとめたものです。</description>
+      <description>NotesにてPDFノート「微分演算子」の追加。 よく知られている並進演算子、スケール演算子などのちょっとした確認計算を、わりと前にPDFにま</description>
     </item>
     
   </channel>

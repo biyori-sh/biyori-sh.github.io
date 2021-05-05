@@ -5,7 +5,7 @@
     <link>https://biyori-sh.github.io/tags/etc/</link>
     <description>Recent content in etc on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>utf-8</language>
+    <language>ja-jp</language>
     <lastBuildDate>Mon, 29 Mar 2021 15:45:52 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/tags/etc/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
       <pubDate>Mon, 29 Mar 2021 15:45:52 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/about-website/</guid>
-      <description>はじめまして。 ここでは物理や数学、プログラミングなどについてのノートや記事を置いていく予定です。
-テストとして、まだ途中のLorentz変換についてのノートを公開します。</description>
+      <description>はじめまして。 ここでは物理や数学、プログラミングなどについてのノートや記事を置いていく予定です。 テストとして、まだ途中のLorentz変換に</description>
     </item>
     
   </channel>

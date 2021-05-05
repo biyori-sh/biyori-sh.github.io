@@ -1,5 +1,6 @@
 baseURL = "https://biyori-sh.github.io/"
-languageCode = "utf-8"
+languageCode = "ja-jp"
+hasCJKLanguage = true
 title = "biyori-sh's page"
 theme = "archie"
 publishDir = "docs" # Directory where htmls are gerenated
@@ -22,6 +23,8 @@ paginate = 4 # articles per page
 	mode = "auto" # color-mode → light,dark or auto
 	useCDN = false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle = "ノートなどをぼちぼち"
+    favicon = "IMG/favicon.ico"
+    appleTouchIcon = "IMG/apple-touch-icon.png"
 
 ##### Main menu Items #####
 [[menu.main]]

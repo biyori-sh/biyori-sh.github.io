@@ -5,7 +5,7 @@
     <link>https://biyori-sh.github.io/tags/hugo/</link>
     <description>Recent content in hugo on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>utf-8</language>
+    <language>ja-jp</language>
     <lastBuildDate>Sun, 11 Apr 2021 17:12:39 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
@@ -17,17 +17,7 @@
       <pubDate>Sun, 11 Apr 2021 17:12:39 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210411/</guid>
-      <description>Github Pages Githubでは&amp;lt;username&amp;gt;.github.ioで個人ブログを持つことが出来る。 静的なものしか出来ないが、別途サーバーを用意する必要がない。
-&amp;lt;username&amp;gt;.github.ioという名称のリポジトリをつくり、htmlを並べればWebサイトになる。 あるいは静的サイトジェネレータとしてJekyllがサポートされているので、これを用いたWebサイト作りも出来る。
-これはHugoを用いてWeb サイトを作ったメモである。 参考としてHugo DocumentationとHugoで新規のWebサイトを作成する、Hugoで1からテーマを作ってGitHub Pagesにデプロイするなどを見た。
-Hugoのインストール Ubuntu20.04ではaptで導入が可能になっている。 公式ではwgetによる導入が記載されていたが、簡単にaptで導入した。
-$ sudo apt install hugo リポジトリ作成（ローカル） まずはローカルな環境で&amp;lt;username&amp;gt;.github.ioの名前でディレクトリを作ることになるが、mkdirをする必要はなく
-$ hugo new site &amp;lt;username&amp;gt;.github.io を実行することでディレクトリと基本的なツリー構造
-&amp;lt;username&amp;gt;.github.io/ ├─ archetypes ├─ content ├─ data ├─ layouts ├─ resources ├─ static ├─ themes └─ config.toml が出来上がる。 config.tomlが基本となる設定ファイルである。 archetypes/に記事を作る際のテンプレート用ファイルがあり、記事はcontent/に保存していく。 記事は基本的にマークダウンファイル.mdとして作る。
-Theme themes/にWebサイトの基本となるテーマをインストールする。 これはHugo Themesから選べる。 ここではArchie を選んだ(athul/archie Github, Archie Sample)。
-$ cd themes $ git clone https://github.com/athul/archie.git でテーマのインストールは完了となる。 ここにarchetypes/とconfig.tomlの参考に出来る例があるので適宜コピペする（実際の設定はこちら）。 また後のために.git/などのGitまわりのディレクトリは削除しておく。
-Content content/内での構造は
-content/ ├── about ├── notes └── posts とした。 各々好きなディレクトリ名、構造にすることが出来る。 それぞれに適宜.</description>
+      <description>Github Pages Githubでは&amp;lt;username&amp;gt;.github.ioで個人ブログを持つことが出来る。 静的なものしか出来ないが、別途サーバ</description>
     </item>
     
   </channel>

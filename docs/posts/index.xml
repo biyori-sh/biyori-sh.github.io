@@ -5,7 +5,7 @@
     <link>https://biyori-sh.github.io/posts/</link>
     <description>Recent content in Posts on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>utf-8</language>
+    <language>ja-jp</language>
     <lastBuildDate>Wed, 05 May 2021 14:34:49 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -17,16 +17,7 @@
       <pubDate>Wed, 05 May 2021 14:34:49 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210505/</guid>
-      <description>既にあるgsllを入れる(quicklisp) - Nosの日記(2012)の二番煎じな内容。
-以下はUbuntu20.04(WSL2)でRoswellが入ってるものとしての説明。 処理系はSBCL。
-GSLLとは 数値計算のライブラリGNU Scientific Library (GSL)をCommon Lispから使えるようにしたもの。 GNU Scientific Library for Lisp、略してGSLL。 公式サイトはGNU Scientific Library for Lisp。 もともとのGSLはGSL - GNU Scientific Library。
-基本的に公式を読めば解決。公式を読もう。
-GSLLの導入の前に 公式にある通り、まずは
-sudo apt install libgsl0-dev libffi-dev で必要なパッケージをインストールする（libgsl0-devで実際にインストールされるのはlibgsl-devと表示された）。
-GSLLの導入 必要なパッケージは上のコマンドでインストールされたはずなので、Roswell環境下のQuicklispが使える状態で
-(ql:quickload :gsll) を実行することでGSLLが使えるようになる。
-ユニットテスト 上述のWebサイトを真似てユニットテストを実行してみると
-; SLIME 2.24 CL-USER&amp;gt; (ql:quickload :lisp-unit) To load &amp;#34;lisp-unit&amp;#34;: Load 1 ASDF system: lisp-unit ; Loading &amp;#34;lisp-unit&amp;#34; (:LISP-UNIT) CL-USER&amp;gt; (ql:quickload :gsll) To load &amp;#34;gsll&amp;#34;: Load 1 ASDF system: gsll ; Loading &amp;#34;gsll&amp;#34; .</description>
+      <description>既にあるgsllを入れる(quicklisp) - Nosの日記(2012)の二番煎じな内容。 以下はUbuntu20.04(WSL2)でRosw</description>
     </item>
     
     <item>
@@ -35,12 +26,7 @@ GSLLの導入 必要なパッケージは上のコマンドでインストール
       <pubDate>Sun, 02 May 2021 14:30:09 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210502/</guid>
-      <description>いままで調べるときはWebブラウザに移動して検索していたが、ふと気になったのでEmacsのewwでCommonLispのHyperSpecをHack!（2015年）を参考に設定を変更したときのメモ。
-ちょっと検索してみるとどうやらこのページの記述は若干古いらしく、新しい方の書き方と思われるコードに変更（古いだけで問題なく動きはする。）。 基本的には上記のページの内容に沿っているので違うところのみを以下メモ。 また、ここのコードは動きはしますが実際のところ正しいのかはよくわかっておりません。
-修正する設置ファイルの位置 使っているslimeのHyperspecに関わる設定ファイルhyperspec.elを編集する。 roswellを使っているときは~/.roswell/lisp/slime/2020.07.15/lib/にあるhyperspec.elが読み込まれる（バージョンによってはslime直下のディレクトリ名は違うと思われる。）。 roswellを使っていないときは~/.emacs.d/elpa/以下に同じようなディレクトリがあるはずなので、そこを修正すれば反映されると思われる。
-ここではその設定ファイルを直接編集するので、念の為ファイル内で既存のコードはコメントアウトして編集するか、別途バックアップファイルを作っておくかしておく。
-defadviceからdefun+advice-addへ どうやら参考にしたページにあるdefadviceを使うコードは古いらしく、以下のようにdefunとadvice-addとのコードに変更した。
-(defun common-lisp-hyperspec-around (orig-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply orig-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec :around &amp;#39;common-lisp-hyperspec-around) (defun common-lisp-hyperspec-lookup-reader-macro-around (oring-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply oring-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec-lookup-reader-macro :around &amp;#39;common-lisp-hyperspec-lookup-reader-macro-around) (defun common-lisp-hyperspec-format-around (orig-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply orig-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec-format :around &amp;#39;common-lisp-hyperspec-format-around) :aroundの場合だけなので、defadviceを元の函数とその引数とを引数に持つdefunに書き換え、ad-do-itの部分を(apply orig-func args)に書き換えた。</description>
+      <description>いままで調べるときはWebブラウザに移動して検索していたが、ふと気になったのでEmacsのewwでCommonLispのHyperSpecを</description>
     </item>
     
     <item>
@@ -49,17 +35,7 @@ defadviceからdefun+advice-addへ どうやら参考にしたページにある
       <pubDate>Sun, 11 Apr 2021 17:12:39 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210411/</guid>
-      <description>Github Pages Githubでは&amp;lt;username&amp;gt;.github.ioで個人ブログを持つことが出来る。 静的なものしか出来ないが、別途サーバーを用意する必要がない。
-&amp;lt;username&amp;gt;.github.ioという名称のリポジトリをつくり、htmlを並べればWebサイトになる。 あるいは静的サイトジェネレータとしてJekyllがサポートされているので、これを用いたWebサイト作りも出来る。
-これはHugoを用いてWeb サイトを作ったメモである。 参考としてHugo DocumentationとHugoで新規のWebサイトを作成する、Hugoで1からテーマを作ってGitHub Pagesにデプロイするなどを見た。
-Hugoのインストール Ubuntu20.04ではaptで導入が可能になっている。 公式ではwgetによる導入が記載されていたが、簡単にaptで導入した。
-$ sudo apt install hugo リポジトリ作成（ローカル） まずはローカルな環境で&amp;lt;username&amp;gt;.github.ioの名前でディレクトリを作ることになるが、mkdirをする必要はなく
-$ hugo new site &amp;lt;username&amp;gt;.github.io を実行することでディレクトリと基本的なツリー構造
-&amp;lt;username&amp;gt;.github.io/ ├─ archetypes ├─ content ├─ data ├─ layouts ├─ resources ├─ static ├─ themes └─ config.toml が出来上がる。 config.tomlが基本となる設定ファイルである。 archetypes/に記事を作る際のテンプレート用ファイルがあり、記事はcontent/に保存していく。 記事は基本的にマークダウンファイル.mdとして作る。
-Theme themes/にWebサイトの基本となるテーマをインストールする。 これはHugo Themesから選べる。 ここではArchie を選んだ(athul/archie Github, Archie Sample)。
-$ cd themes $ git clone https://github.com/athul/archie.git でテーマのインストールは完了となる。 ここにarchetypes/とconfig.tomlの参考に出来る例があるので適宜コピペする（実際の設定はこちら）。 また後のために.git/などのGitまわりのディレクトリは削除しておく。
-Content content/内での構造は
-content/ ├── about ├── notes └── posts とした。 各々好きなディレクトリ名、構造にすることが出来る。 それぞれに適宜.</description>
+      <description>Github Pages Githubでは&amp;lt;username&amp;gt;.github.ioで個人ブログを持つことが出来る。 静的なものしか出来ないが、別途サーバ</description>
     </item>
     
     <item>
@@ -68,8 +44,7 @@ content/ ├── about ├── notes └── posts とした。 各々好�
       <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210404/</guid>
-      <description>NotesにてPDFノート「微分演算子」の追加。
-よく知られている並進演算子、スケール演算子などのちょっとした確認計算を、わりと前にPDFにまとめたものです。</description>
+      <description>NotesにてPDFノート「微分演算子」の追加。 よく知られている並進演算子、スケール演算子などのちょっとした確認計算を、わりと前にPDFにま</description>
     </item>
     
     <item>
@@ -78,8 +53,7 @@ content/ ├── about ├── notes └── posts とした。 各々好�
       <pubDate>Thu, 01 Apr 2021 01:09:59 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210401/</guid>
-      <description>NotesにてPDFスライド「Common Lispの紹介」の追加。
-内輪でとはいえ、日の目を見る機会が無くなったスライドの供養を兼ねて置いておきます。</description>
+      <description>NotesにてPDFスライド「Common Lispの紹介」の追加。 内輪でとはいえ、日の目を見る機会が無くなったスライドの供養を兼ねて置いてお</description>
     </item>
     
     <item>
@@ -88,8 +62,7 @@ content/ ├── about ├── notes └── posts とした。 各々好�
       <pubDate>Mon, 29 Mar 2021 15:45:52 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/about-website/</guid>
-      <description>はじめまして。 ここでは物理や数学、プログラミングなどについてのノートや記事を置いていく予定です。
-テストとして、まだ途中のLorentz変換についてのノートを公開します。</description>
+      <description>はじめまして。 ここでは物理や数学、プログラミングなどについてのノートや記事を置いていく予定です。 テストとして、まだ途中のLorentz変換に</description>
     </item>
     
   </channel>

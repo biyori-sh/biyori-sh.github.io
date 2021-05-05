@@ -5,7 +5,7 @@
     <link>https://biyori-sh.github.io/tags/emacs/</link>
     <description>Recent content in emacs on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>utf-8</language>
+    <language>ja-jp</language>
     <lastBuildDate>Sun, 02 May 2021 14:30:09 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
@@ -17,12 +17,7 @@
       <pubDate>Sun, 02 May 2021 14:30:09 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/posts/post-20210502/</guid>
-      <description>いままで調べるときはWebブラウザに移動して検索していたが、ふと気になったのでEmacsのewwでCommonLispのHyperSpecをHack!（2015年）を参考に設定を変更したときのメモ。
-ちょっと検索してみるとどうやらこのページの記述は若干古いらしく、新しい方の書き方と思われるコードに変更（古いだけで問題なく動きはする。）。 基本的には上記のページの内容に沿っているので違うところのみを以下メモ。 また、ここのコードは動きはしますが実際のところ正しいのかはよくわかっておりません。
-修正する設置ファイルの位置 使っているslimeのHyperspecに関わる設定ファイルhyperspec.elを編集する。 roswellを使っているときは~/.roswell/lisp/slime/2020.07.15/lib/にあるhyperspec.elが読み込まれる（バージョンによってはslime直下のディレクトリ名は違うと思われる。）。 roswellを使っていないときは~/.emacs.d/elpa/以下に同じようなディレクトリがあるはずなので、そこを修正すれば反映されると思われる。
-ここではその設定ファイルを直接編集するので、念の為ファイル内で既存のコードはコメントアウトして編集するか、別途バックアップファイルを作っておくかしておく。
-defadviceからdefun+advice-addへ どうやら参考にしたページにあるdefadviceを使うコードは古いらしく、以下のようにdefunとadvice-addとのコードに変更した。
-(defun common-lisp-hyperspec-around (orig-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply orig-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec :around &amp;#39;common-lisp-hyperspec-around) (defun common-lisp-hyperspec-lookup-reader-macro-around (oring-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply oring-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec-lookup-reader-macro :around &amp;#39;common-lisp-hyperspec-lookup-reader-macro-around) (defun common-lisp-hyperspec-format-around (orig-func &amp;amp;rest args) (let ((buf (current-buffer))) (apply orig-func args) (switch-to-buffer buf) (pop-to-buffer &amp;#34;*eww*&amp;#34;))) (advice-add &amp;#39;common-lisp-hyperspec-format :around &amp;#39;common-lisp-hyperspec-format-around) :aroundの場合だけなので、defadviceを元の函数とその引数とを引数に持つdefunに書き換え、ad-do-itの部分を(apply orig-func args)に書き換えた。</description>
+      <description>いままで調べるときはWebブラウザに移動して検索していたが、ふと気になったのでEmacsのewwでCommonLispのHyperSpecを</description>
     </item>
     
   </channel>

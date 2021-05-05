@@ -5,7 +5,7 @@
     <link>https://biyori-sh.github.io/tags/about-me/</link>
     <description>Recent content in about me on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>utf-8</language>
+    <language>ja-jp</language>
     <lastBuildDate>Mon, 29 Mar 2021 12:52:19 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/tags/about-me/index.xml" rel="self" type="application/rss+xml" />
@@ -17,9 +17,7 @@
       <pubDate>Mon, 29 Mar 2021 12:52:19 +0900</pubDate>
       
       <guid>https://biyori-sh.github.io/about/</guid>
-      <description>広島でそりうしっぽなにかをしている学生です。
-Nambu&amp;ndash;Jona Lasinio (NJL) 模型やGross&amp;ndash;Neveu (GN) 模型などをいじってます。
-Common Lisp にも興味があります。</description>
+      <description>広島でそりうしっぽなにかをしている学生です。 Nambu&amp;ndash;Jona Lasinio (NJL) 模型やGross&amp;ndash;Neveu (GN) 模型などをいじってます。 Common Lisp にも興味があります。</description>
     </item>
     
   </channel>
