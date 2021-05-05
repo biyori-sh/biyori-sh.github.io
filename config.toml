@@ -4,7 +4,12 @@ title = "biyori-sh's page"
 theme = "archie"
 publishDir = "docs" # Directory where htmls are gerenated
 canonifyurls = true # Baseurl(root)
-googleAnalytics = ""
+enableRobotsTXT = true
+
+## googleAnalytics
+## --> themes/archie/layouts/partials/header.html(<!-- Analytics -->)
+## --> themes/archie/layouts/partials/google-analytics.html
+googleAnalytics = "UA-196187145-1"
 
 ##### Code Highlight #####
 pygmentsstyle = "monokai"
@@ -58,4 +63,4 @@ url = "https://twitter.com/biyori_sh/"
 # [[params.social]]
 # name = "GitLab"
 # icon = "gitlab"
-# url = "https://gitlab.com/athul/"
+# url = ""
