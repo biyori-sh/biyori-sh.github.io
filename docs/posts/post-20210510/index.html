@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする - biyori-sh&#39;s page</title><link rel="icon" type="image/png" href=IMG/favicon.ico /><link rel="apple-touch-icon" type="image/png" href=IMG/apple-touch-icon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする - biyori-sh&#39;s page</title><link rel="icon" type="image/png" href="https://biyori-sh.github.io/IMG/favicon.ico" /><link rel="apple-touch-icon" type="image/png" href="https://biyori-sh.github.io/IMG/apple-touch-icon.png" /><meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta property="og:image" content=""/>
 	<meta property="og:title" content="メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする" />
@@ -72,6 +72,7 @@
 </ul>
 <p>上記2つのWebページにある手順に基本的には従った。</p>
 <p>ここに記されていることはあくまで<strong>やったこと</strong>であり、目的を達成する上で十分だとは思われるが必要なのかどうかは不明。</p>
+<p><strong>（「蛇足: FaviconとApple-touch-icon」に投稿直後の追記あり。）</strong></p>
 <h1 id="google-analytics">Google Analytics</h1>
 <p><a href="https://analytics.google.com/analytics/web/">Google Analytics</a>で登録する。
 今回が利用が初めてだったため</p>
@@ -134,6 +135,9 @@
 ArchieはFaviconには対応している<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>ので、<code>config.toml</code>の<code>[params]</code>以下に</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">favicon = &#34;IMG/favicon.ico&#34;
 </code></pre></div><p>を追記しておけば<code>docs/IMG/favicon.ico</code>を読み込んで表示してくれる（<code>content/</code>ではないことにちょっと注意）。
+<strong>（1度目の投稿直後に追記）と思っていたときが自分にもありました…。
+Archieに共通する問題かよくわかっていないが、この設定だとホームページのみしかFavicon（と後に述べるApple-touch-icon）が表示されない。
+修正箇所についてはApple-touch-iconのところでコードを示す。</strong>
 <code>config.toml</code>の設定と対応した形で<code>docs/</code>以下にさえ置いていればいいので、ディレクトリの構造は<code>docs/favicon.ico</code>であろうと<code>docs/ICON/favicon.ico</code>であろうと問題ない。</p>
 <p>表示するためのFaviconは適当なソフトで作っておく。
 ここではapple-touch-iconのために<code>180px</code>の<code>png</code>で作る。
@@ -148,13 +152,18 @@ ArchieはFaviconには対応している<sup id="fnref:1"><a href="#fn:1" class=
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{- if isset .Site.Params &#34;favicon&#34; -}}
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Site</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Params</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">favicon</span> <span style="color:#960050;background-color:#1e0010">}}</span> /&gt;
 {{- end -}}
-</code></pre></div><p>の下に</p>
+</code></pre></div><p><del>の下に</del>を</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{- if isset .Site.Params &#34;favicon&#34; -}}
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}{{ .Site.Params.favicon }}&#34;</span> /&gt;
+{{- end -}}
+</code></pre></div><p>に修正し、</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- apple-touch-icon --&gt;</span>
 {{- if isset .Site.Params &#34;appletouchicon&#34; -}}
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Site</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Params</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">appletouchicon</span> <span style="color:#960050;background-color:#1e0010">}}</span> /&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}{{ .Site.Params.appletouchicon }}&#34;</span> /&gt;
 {{- end -}}
 </code></pre></div><p>を書き込む。
-この変更に対応させて<code>config.toml</code>の<code>[params]</code>に</p>
+<strong>（追記）上記のコードは元々の相対パス指定から絶対パス指定に変更されたものになっている。</strong>
+この設定に対応させて<code>config.toml</code>の<code>[params]</code>に</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">appleTouchIcon = &#34;IMG/apple-touch-icon.png&#34;
 </code></pre></div><p>を追記する。
 これでApple-touch-iconも表示される。</p>

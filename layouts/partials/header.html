@@ -10,11 +10,11 @@
 	{{- end -}}
 
 	{{- if isset .Site.Params "favicon" -}}
-	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
+	<link rel="icon" type="image/png" href="{{ .Site.BaseURL }}{{ .Site.Params.favicon }}" />
 	{{- end -}}
     <!-- apple-touch-icon -->
     {{- if isset .Site.Params "appletouchicon" -}}
-	<link rel="apple-touch-icon" type="image/png" href={{ .Site.Params.appletouchicon }} />
+	<link rel="apple-touch-icon" type="image/png" href="{{ .Site.BaseURL }}{{ .Site.Params.appletouchicon }}" />
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
