@@ -3,22 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://biyori-sh.github.io/tags/git/</loc>
+    <lastmod>2021-05-10T18:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biyori-sh.github.io/tags/github/</loc>
+    <lastmod>2021-05-10T18:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biyori-sh.github.io/tags/hugo/</loc>
+    <lastmod>2021-05-10T18:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biyori-sh.github.io/posts/</loc>
+    <lastmod>2021-05-10T18:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biyori-sh.github.io/tags/</loc>
+    <lastmod>2021-05-10T18:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biyori-sh.github.io/posts/post-20210510/</loc>
+    <lastmod>2021-05-10T18:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://biyori-sh.github.io/tags/common-lisp/</loc>
     <lastmod>2021-05-05T14:34:49+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://biyori-sh.github.io/posts/post-20210505/</loc>
-    <lastmod>2021-05-05T14:34:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biyori-sh.github.io/posts/</loc>
-    <lastmod>2021-05-05T14:34:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biyori-sh.github.io/tags/</loc>
     <lastmod>2021-05-05T14:34:49+09:00</lastmod>
   </url>
   
@@ -30,21 +50,6 @@
   <url>
     <loc>https://biyori-sh.github.io/posts/post-20210502/</loc>
     <lastmod>2021-05-02T14:30:09+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biyori-sh.github.io/tags/git/</loc>
-    <lastmod>2021-04-11T17:12:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biyori-sh.github.io/tags/github/</loc>
-    <lastmod>2021-04-11T17:12:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biyori-sh.github.io/tags/hugo/</loc>
-    <lastmod>2021-04-11T17:12:39+09:00</lastmod>
   </url>
   
   <url>

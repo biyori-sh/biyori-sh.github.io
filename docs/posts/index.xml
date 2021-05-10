@@ -6,10 +6,19 @@
     <description>Recent content in Posts on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 05 May 2021 14:34:49 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 10 May 2021 18:05:51 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする</title>
+      <link>https://biyori-sh.github.io/posts/post-20210510/</link>
+      <pubDate>Mon, 10 May 2021 18:05:51 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210510/</guid>
+      <description>どうやらGithub Pagesで作ったWebページはデフォルトでGoogle検索で引っかからないらしい。 実際サイト名などで検索しても引っかか</description>
+    </item>
     
     <item>
       <title>GSLLの導入(Roswell)</title>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする - biyori-sh&#39;s page</title><link rel="icon" type="image/png" href=IMG/favicon.ico /><link rel="apple-touch-icon" type="image/png" href=IMG/apple-touch-icon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする" />
+<meta property="og:description" content="Google AnalyticsとGoogle Search Consoleとに登録してGithub Pages (Hugo, Archie)で作ったWebサイトをGoogle検索で見つかるようにしたメモ。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biyori-sh.github.io/posts/post-20210510/" />
+<meta property="article:published_time" content="2021-05-10T18:05:51+09:00" />
+<meta property="article:modified_time" content="2021-05-10T18:05:51+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする"/>
+<meta name="twitter:description" content="Google AnalyticsとGoogle Search Consoleとに登録してGithub Pages (Hugo, Archie)で作ったWebサイトをGoogle検索で見つかるようにしたメモ。"/>
+<script src="https://biyori-sh.github.io/js/feather.min.js"></script>
+	
+	<link href="https://biyori-sh.github.io/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://biyori-sh.github.io/css/main.css" /><link rel="stylesheet" type="text/css" href="https://biyori-sh.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-196187145-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'UA-196187145-1');
+</script>
+
+    
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://biyori-sh.github.io/">biyori-sh&#39;s page</a>
+	</div>
+	<nav>
+		
+		<a href="https://biyori-sh.github.io/">Home</a>
+		
+		<a href="https://biyori-sh.github.io/posts">All posts</a>
+		
+		<a href="https://biyori-sh.github.io/notes">Notes</a>
+		
+		<a href="https://biyori-sh.github.io/about">About</a>
+		
+		<a href="https://biyori-sh.github.io/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">メモ: Github Pagesで作ったWebサイトがGoogle検索で見つかるようにする</h1>
+			<div class="meta">Posted on May 10, 2021</div>
+		</div>
+		
+
+		<section class="body">
+			<p>どうやらGithub Pagesで作ったWebページはデフォルトでGoogle検索で引っかからないらしい。
+実際サイト名などで検索しても引っかかってくれてないっぽい。
+せっかく作ったWebページなのに興味ある人の目に触れにくい状態なのはもったいないので、以下やったことのメモを記す。</p>
+<ul>
+<li><a href="https://www.bedroomcomputing.com/2020/04/2020-0408-googleconsole/">GitHub Pagesで作ったブログをGoogle検索にヒットさせる - 寝室コンピューティング</a></li>
+<li><a href="https://helve-blog.com/posts/web-technology/hugo-google-analytics-tag/">Hugoサイトに最新版のGoogle Analyticsのタグを埋め込む - Helve Tech Blog</a></li>
+</ul>
+<p>上記2つのWebページにある手順に基本的には従った。</p>
+<p>ここに記されていることはあくまで<strong>やったこと</strong>であり、目的を達成する上で十分だとは思われるが必要なのかどうかは不明。</p>
+<h1 id="google-analytics">Google Analytics</h1>
+<p><a href="https://analytics.google.com/analytics/web/">Google Analytics</a>で登録する。
+今回が利用が初めてだったため</p>
+<ol>
+<li>適当に「アカウント名」を決め、「アカウントのデータ共有設定」の選択</li>
+<li>「プロパティ名」に目的のサイト名を入力し、「タイムゾーン」・「通貨」の設定を日本に</li>
+<li>「次へ」を押す前に、念の為「<strong>詳細プションのを表示</strong>」をクリックし、目的のサイトのURLを入力</li>
+<li>ビジネス情報にて「業種」・「ビジネスの規模」・「利用目的」を適宜選択</li>
+<li>「作成」をクリック
+の手順で一応の設定は完了。</li>
+</ol>
+<p>アナリティクスの画面にある「管理」から、「プロパティ名」に入力した名称のプロパティの「トラッキング情報/トラッキングコード」へ移動。
+「グローバルサイトタグ（gtag.js）」を確認しておく。</p>
+<h1 id="hugo側の設定archieの場合">Hugo側の設定（Archieの場合）</h1>
+<p>Archieでは<code>config.toml</code>にある<code>googleAnalytics</code>にトラッキングIDを設定することになっている。
+しかしこれだけでは今のGoogle Search Consoleの設定との接続が良くない（らしい）。</p>
+<p>とりあえずこれから編集する<code>themes/archie/layouts/</code>の中身を<code>config.toml</code>が存在する階層にある<code>layout/</code>にコピーする。
+以下コピーして作った方の<code>html</code>ファイルを編集する。</p>
+<p><code>layouts/partials/header.html</code>の<code>&lt;/head&gt;</code>直前くらいに</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Analytics --&gt;</span>
+{{ if not .Site.IsServer }}
+{{ partial &#34;google-analytics&#34; . }}
+{{ end }}
+</code></pre></div><p>を追記しておく。
+ヘッダー内であれば基本的に位置の問題は無いと思われる。
+次に<code>layouts/partials/google-analytics.html</code>を作り、上で確認した「グローバルサイトタグ（gtag.js）」を書き込む。
+書き込んだものは</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">async</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.googletagmanager.com/gtag/js?id=UA-YourTracking-Id&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+ window.<span style="color:#a6e22e">dataLayer</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">dataLayer</span> <span style="color:#f92672">||</span> [];
+ <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gtag</span>(){<span style="color:#a6e22e">dataLayer</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arguments</span>);}
+ <span style="color:#a6e22e">gtag</span>(<span style="color:#e6db74">&#39;js&#39;</span>, <span style="color:#66d9ef">new</span> Date());
+
+ <span style="color:#a6e22e">gtag</span>(<span style="color:#e6db74">&#39;config&#39;</span>, <span style="color:#e6db74">&#39;UA-YourTracking-Id&#39;</span>);
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>である（例のためにトラッキングIDの部分を<code>UA-YourTracking-Id</code>に書き換えてある）。</p>
+<p>この状態で<code>hugo</code>を実行するなどして事前にWebページの生成を行なう。
+ホームページのソースを見て、上記のコードに対応する部分がヘッダーにあることを確認する。</p>
+<p>またHugoではデフォルトでサイトマップ<code>sitemap.xml</code>が生成されていると思われるので、生成されないように設定しているのであれば外しておく。</p>
+<blockquote>
+<p>This XML file does not appear to have any style information associated with it. The document tree is shown below.</p>
+</blockquote>
+<p>と表示されると思うが問題ないっぽい。</p>
+<h1 id="google-search-console">Google Search Console</h1>
+<p><a href="https://search.google.com/search-console/welcome">Google Search Console へようこそ</a>の「URLプレフィックス」に目的のWebサイトのURLを入力する。
+上述のGoogle AnalyticsとHugoの設定がうまく行っていればそのままサイトの所有権が認証される。
+認証されなくても、別の認証方法が選択肢が表示されるので可能なものを選択する。</p>
+<p>認証されたプロパティのサイドバーの「サイトマップ」へ移動する。
+サイトマップへのURLを貼り付けて「送信」する。
+とくに設定の変更を行なっていなければ<code>(url)/sitemap.xml</code>でサイトマップが確認できると思われる。</p>
+<p>効果があるかよくわからないが、一応念の為に左サイドバーの「URL検査」にホームページのURLを入力し、「URLがGoogle に登録されていません」が表示されることを確認し、その下にある「インデックス登録をリクエスト」をクリックしておく。</p>
+<h1 id="結果">結果</h1>
+<p>上記の操作を行なったのが2021-05-05だったのだが、すぐには設定が反映されず3,4日後くらいにGoogle検索で引っかかるようになった。
+また本日(05-10)にGoogle Search Consoleからのメールが届いた。
+ちゃんと設定がうまく反映されていたようで一安心。</p>
+<h1 id="蛇足-faviconとapple-touch-icon">蛇足: FaviconとApple-touch-icon</h1>
+<h2 id="favicon">Favicon</h2>
+<p>検索に引っかかるようになったのだからちょっとくらい見栄えを良くしたいと思い、Faviconも表示されるようにした。
+ArchieはFaviconには対応している<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>ので、<code>config.toml</code>の<code>[params]</code>以下に</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">favicon = &#34;IMG/favicon.ico&#34;
+</code></pre></div><p>を追記しておけば<code>docs/IMG/favicon.ico</code>を読み込んで表示してくれる（<code>content/</code>ではないことにちょっと注意）。
+<code>config.toml</code>の設定と対応した形で<code>docs/</code>以下にさえ置いていればいいので、ディレクトリの構造は<code>docs/favicon.ico</code>であろうと<code>docs/ICON/favicon.ico</code>であろうと問題ない。</p>
+<p>表示するためのFaviconは適当なソフトで作っておく。
+ここではapple-touch-iconのために<code>180px</code>の<code>png</code>で作る。
+作ったものを例えば<a href="https://favicon-generator.mintsu-dev.com/">Faviconジェネレーター</a>のようなサイトの助けを借りて<code>ico</code>に変換する。
+「favicon icon 変換」で検索すればいくつかのサイトが見つかるはずである。
+ここで自分は<code>16x16</code>と<code>32x32</code>、<code>64x64</code>の3つを選択して<code>favicon.ico</code>を作った。
+これを上述の<code>docs/IMG/</code>以下に配置してfaviconについては完了である。</p>
+<h2 id="apple-touch-icon">Apple-touch-icon</h2>
+<p>Appleのソフト向けにApple-touch-iconも作ったほうが良いらしい、という書き込みをFaviconについて調べている時に見かけたがのでついでに設定した。
+表示するためのものは上で作った<code>180px</code>の<code>png</code>がApple-toucn-icon用の画像なので<code>apple-touch-icon.png</code>に名前を変更しておいて<code>docs/IMG/</code>以下に配置しておく。</p>
+<p>ArchieはApple-touch-iconには対応していないので、<code>layouts/partials/header.html</code>の12行目くらいにあるであろう</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{- if isset .Site.Params &#34;favicon&#34; -}}
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Site</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Params</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">favicon</span> <span style="color:#960050;background-color:#1e0010">}}</span> /&gt;
+{{- end -}}
+</code></pre></div><p>の下に</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- apple-touch-icon --&gt;</span>
+{{- if isset .Site.Params &#34;appletouchicon&#34; -}}
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Site</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Params</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">appletouchicon</span> <span style="color:#960050;background-color:#1e0010">}}</span> /&gt;
+{{- end -}}
+</code></pre></div><p>を書き込む。
+この変更に対応させて<code>config.toml</code>の<code>[params]</code>に</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">appleTouchIcon = &#34;IMG/apple-touch-icon.png&#34;
+</code></pre></div><p>を追記する。
+これでApple-touch-iconも表示される。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Archieのフォーク元のテーマ<a href="https://github.com/vividvilla/ezhil">Ezhil</a>を見れば、<code>[params]</code>の中に<code>favison</code>が含まれていることが確認できる。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="https://biyori-sh.github.io/tags/github">github</a></li>
+					
+					<li><a href="https://biyori-sh.github.io/tags/hugo">hugo</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/biyori-sh/" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/biyori_sh/" title="Twitter"><i data-feather="twitter"></i></a>|⚡️
+	2021  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-196187145-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
