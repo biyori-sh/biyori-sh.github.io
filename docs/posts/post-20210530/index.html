@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Hugo(Archie)でKaTeXを使えるようにする - biyori-sh&#39;s page</title><link rel="icon" type="image/png" href="https://biyori-sh.github.io/IMG/favicon.ico" /><link rel="apple-touch-icon" type="image/png" href="https://biyori-sh.github.io/IMG/apple-touch-icon.png" /><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Hugo(Archie)でKaTeXを使えるようにする" />
+<meta property="og:description" content="Hugo(Archie)で生成したGithub Pages上のWebページでKaTeXの数式を表示できるようにしたメモ。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biyori-sh.github.io/posts/post-20210530/" />
+<meta property="article:published_time" content="2021-05-30T03:10:04+09:00" />
+<meta property="article:modified_time" content="2021-05-30T03:10:04+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo(Archie)でKaTeXを使えるようにする"/>
+<meta name="twitter:description" content="Hugo(Archie)で生成したGithub Pages上のWebページでKaTeXの数式を表示できるようにしたメモ。"/>
+<script src="https://biyori-sh.github.io/js/feather.min.js"></script>
+	
+	<link href="https://biyori-sh.github.io/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://biyori-sh.github.io/css/main.css" /><link rel="stylesheet" type="text/css" href="https://biyori-sh.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-196187145-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'UA-196187145-1');
+</script>
+
+    
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://biyori-sh.github.io/">biyori-sh&#39;s page</a>
+	</div>
+	<nav>
+		
+		<a href="https://biyori-sh.github.io/">Home</a>
+		
+		<a href="https://biyori-sh.github.io/posts">All posts</a>
+		
+		<a href="https://biyori-sh.github.io/notes">Notes</a>
+		
+		<a href="https://biyori-sh.github.io/about">About</a>
+		
+		<a href="https://biyori-sh.github.io/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Hugo(Archie)でKaTeXを使えるようにする</h1>
+			<div class="meta">Posted on May 30, 2021</div>
+		</div>
+		
+
+		<section class="body">
+			<ul>
+<li><a href="https://qiita.com/mametank/items/fa2b8a03598c9548e461">KaTeXの数式をLaTeXの[&hellip;]と$&hellip;$で記述し，それをHugoで生成するページで表示する-Qiita</a></li>
+<li><a href="https://blog.atusy.net/2019/05/09/katex-in-hugo/">HugoでKaTeX</a></li>
+</ul>
+<p>を参考に（というかほぼそのままに）、Hugoで生成したWebページでもKaTeXを使えるようにしたメモ。</p>
+<p><a href="https://github.com/athul/archie">Archie</a>をテーマとして用いている。</p>
+<h1 id="katexとは">KaTeXとは</h1>
+<p><a href="https://katex.org/">KaTeX-Github</a>によると、Webサイト上でTeXの数式をレンダリングするためのJavaScriptのライブラリのことであり、速くて使うのが簡単なのが特徴だそうだ。
+Webサイト上でTeXの数式を表示する別のライブラリとして<a href="https://www.mathjax.org/">MathJax</a>というのがあるそうだが、それと比較するとKaTeXのほうが速く表示されるそうである。</p>
+<h1 id="katexの設定ファイル">KaTeXの設定ファイル</h1>
+<p>基本的にJavaScriptのコードの部分はHTMLファイルから分離させたいので、<code>layouts/partial/katex.html</code>を作り</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
+<span style="color:#75715e">&lt;!-- The loading of KaTeX is deferred to speed up page rendering --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+<span style="color:#75715e">&lt;!-- To automatically render math in text elements, include the auto-render extension: --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">onload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;renderMathInElement(document.body);&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;DOMContentLoaded&#34;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">renderMathInElement</span>(
+      document.<span style="color:#a6e22e">body</span>,
+      {
+          <span style="color:#a6e22e">delimiters</span><span style="color:#f92672">:</span> [
+              {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>},
+              {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>}
+          ]
+      });
+  });
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>を書き込む。</p>
+<h1 id="設定ファイルの読み込み">設定ファイルの読み込み</h1>
+<p><code>layouts/partial/katex.html</code>を作るだけでは読み込まれないので、もともと読み込まれるファイル<code>layouts/partial/footer.html</code>に</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ with .Params.katex }}
+{{ partial &#34;katex.html&#34; . }}
+{{ end }}
+</code></pre></div><p>を追記して読み込まれるようにする。
+パラメータ<code>katex</code>が<code>true</code>のときのみKaTeXが有効になる。</p>
+<h1 id="テンプレート">テンプレート</h1>
+<p>パラメータ<code>katex</code>を忘れないようにするため、<code>archetypes/default.md</code>にテンプレとして</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">katex: false
+</code></pre></div><p>を追記しておく。
+これでデフォルトでKaTeXは無効になっている。
+有効にしたいときのみ<code>katex: true</code>にする。
+<code>katex</code>の記述がまったくなければもちろん無効を意味する。</p>
+<h1 id="テスト">テスト</h1>
+<p>インラインの数式は<code>$y=ax^2+bx+c$</code>が$y=ax^2+bx+c$として表示され、行立ての数式は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#e6db74">$$</span>
+\int_{<span style="color:#f92672">-</span>\infty}^\infty \mathrm{d}x \exp<span style="color:#f92672">(-</span>x^<span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">=</span> \sqrt{\pi}
+<span style="color:#e6db74">$$</span>
+</code></pre></div><p>が
+$$
+\int_{-\infty}^\infty \mathrm{d}x \exp(-x^2) = \sqrt{\pi}
+$$
+として表示される。</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="https://biyori-sh.github.io/tags/hugo">hugo</a></li>
+					
+					<li><a href="https://biyori-sh.github.io/tags/katex">KaTeX</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/biyori-sh/" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/biyori_sh/" title="Twitter"><i data-feather="twitter"></i></a>|⚡️
+2021  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-196187145-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>
+ feather.replace()
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+     renderMathInElement(
+         document.body,
+         {
+             delimiters: [
+                 {left: "$$", right: "$$", display: true},
+                 {left: "$", right: "$", display: false}
+             ]
+     });
+ });
+</script>
+
+
+</div>
+    </body>
+</html>
