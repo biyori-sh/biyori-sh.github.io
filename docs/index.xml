@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>GSLLで最小値探索: one-dimensional minimizer</title>
+      <link>https://biyori-sh.github.io/posts/post-20210611/</link>
+      <pubDate>Sat, 12 Jun 2021 18:48:24 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210611/</guid>
+      <description>GNU Scientific Library for Lisp (GSLL)の軽い導入はGSLLの導入(Roswell)で行なったものとする。 基本的に使っている処理系はSBCL。 導入 GSLLには</description>
+    </item>
+    
+    <item>
       <title>Hugo(Archie)でKaTeXを使えるようにする</title>
       <link>https://biyori-sh.github.io/posts/post-20210530/</link>
       <pubDate>Sun, 30 May 2021 03:10:04 +0900</pubDate>
