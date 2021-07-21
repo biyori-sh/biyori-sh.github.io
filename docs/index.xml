@@ -6,10 +6,28 @@
     <description>Recent content on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 04 Apr 2021 01:32:04 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 21 Jul 2021 13:12:04 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes</title>
+      <link>https://biyori-sh.github.io/notes/</link>
+      <pubDate>Wed, 21 Jul 2021 13:12:04 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/notes/</guid>
+      <description>PDF置き場。 問題があれば報告していただけるとありがたいです。 数学・物理系 SPINOR（暫定） 座標のLotentz 変換に始まりスピノル場の変</description>
+    </item>
+    
+    <item>
+      <title>ノートの追加: 複素対称行列の対角化</title>
+      <link>https://biyori-sh.github.io/posts/post-20210721/</link>
+      <pubDate>Wed, 21 Jul 2021 09:32:27 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210721/</guid>
+      <description>NotesてPDFノート「複素対称行列の対角」の追加。 けっこう前に計算を追ったノート。 内容としてはネット上の計算を自分で追っただけなので真新</description>
+    </item>
     
     <item>
       <title>GSLLで最小値探索: multidimensional minimizer</title>
@@ -72,15 +90,6 @@
       
       <guid>https://biyori-sh.github.io/posts/post-20210411/</guid>
       <description>Github Pages Githubでは&amp;lt;username&amp;gt;.github.ioで個人ブログを持つことが出来る。 静的なものしか出来ないが、別途サーバ</description>
-    </item>
-    
-    <item>
-      <title>Notes</title>
-      <link>https://biyori-sh.github.io/notes/</link>
-      <pubDate>Sun, 04 Apr 2021 01:32:04 +0900</pubDate>
-      
-      <guid>https://biyori-sh.github.io/notes/</guid>
-      <description>PDF置き場。 問題があれば報告していただけるとありがたいです。 数学・物理系 SPINOR（暫定） : 座標のLotentz 変換に始まりスピノル場の</description>
     </item>
     
     <item>
