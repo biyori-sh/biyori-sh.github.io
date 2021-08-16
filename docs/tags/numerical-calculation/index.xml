@@ -6,10 +6,19 @@
     <description>Recent content in numerical calculation on biyori-sh&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 19 Jun 2021 17:42:41 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 16 Aug 2021 13:13:02 +0900</lastBuildDate>
     
 	<atom:link href="https://biyori-sh.github.io/tags/numerical-calculation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ノートブックの追加: 2次元Isingモデルの簡単なMonte Carlo計算</title>
+      <link>https://biyori-sh.github.io/posts/post-20210816/</link>
+      <pubDate>Mon, 16 Aug 2021 13:13:02 +0900</pubDate>
+      
+      <guid>https://biyori-sh.github.io/posts/post-20210816/</guid>
+      <description>Notesにノートブック「2次元Ising模型とモンテカルロ・シミュレーション」（説明＋Pythonのコード）を追加。 一応ここにもリンクを貼</description>
+    </item>
     
     <item>
       <title>GSLLで最小値探索: multidimensional minimizer</title>
